@@ -4,7 +4,7 @@ Array.from(btn).forEach((button)=>{
     button.addEventListener("click",(e)=>{
         if(e.target.innerHTML == '=')
         {
-            string=eval(string);
+            string=solveExpression(string);
             document.querySelector('input').value=string;
         }
 else if(e.target.innerHTML == 'c')
@@ -38,3 +38,13 @@ else{
     )
 
 })
+function solveExpression(exp) {
+    let res;
+    try {
+        res = eval(exp) || 0;
+    } catch (e) {
+        return "Error";
+    }
+    return res;
+}
+
